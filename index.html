@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD & SH National College - Student Fees Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <!-- College Logo SVG emblem -->
+                <div class="college-logo">
+                    <svg viewBox="0 0 100 100" class="logo-svg">
+                        <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="#316150" stroke="#fff" stroke-width="2"/>
+                        <polygon points="50,12 82,28 82,72 50,88 18,72 18,28" fill="#539D82" stroke="#fff" stroke-width="1"/>
+                        <path d="M50,20 L70,35 L70,60 L50,75 L30,60 L30,35 Z" fill="#fff"/>
+                        <text x="50" y="47" font-size="12" font-weight="bold" fill="#316150" text-anchor="middle">RD & SH</text>
+                        <line x1="35" y1="52" x2="65" y2="52" stroke="#316150" stroke-width="2"/>
+                        <text x="50" y="66" font-size="10" font-weight="bold" fill="#316150" text-anchor="middle">ESTD 1949</text>
+                    </svg>
+                </div>
+                <div class="college-name-container">
+                    <h1 class="college-name">RD & SH NATIONAL COLLEGE AND SWA SCIENCE COLLEGE</h1>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="student-info">
+                    <span class="student-name">HARISH KUMAR MALLAIAH KALLEPALLI</span>
+                    <span class="divider">|</span>
+                    <span class="student-id">ID: 5677181</span>
+                </div>
+                <!-- Student Avatar -->
+                <div class="student-avatar" id="avatarBtn" title="Student Profile">
+                    <svg viewBox="0 0 100 100" class="avatar-svg">
+                        <circle cx="50" cy="50" r="48" fill="#e2f0ec"/>
+                        <!-- Head -->
+                        <circle cx="50" cy="40" r="18" fill="#539D82"/>
+                        <!-- Body -->
+                        <path d="M50,62 C32,62 22,76 22,90 L78,90 C78,76 68,62 50,62 Z" fill="#316150"/>
+                        <!-- Collar -->
+                        <polygon points="50,68 45,62 55,62" fill="#fff"/>
+                    </svg>
+                </div>
+                <!-- Action Icons -->
+                <div class="header-actions">
+                    <button class="header-btn" id="homeBtn" title="Home">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="action-icon"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </button>
+                    <button class="header-btn logout-btn" id="logoutBtn" title="Logout">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="action-icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Custom Demo Mode Control Panel (Enhancement for Interactive Evaluation) -->
+            <div class="demo-controls-card">
+                <div class="demo-badge">Interactive Demo Mode</div>
+                <p>Toggle pending fees below to simulate payment flows, receipt updates, and verification checks.</p>
+                <div class="toggle-container">
+                    <button class="demo-toggle-btn" id="demoStateEmpty">No Pending Fees</button>
+                    <button class="demo-toggle-btn active" id="demoStatePending">Show Pending Fees (Default)</button>
+                </div>
+            </div>
+
+            <!-- Tab Navigation Cards -->
+            <nav class="tabs-navigation">
+                <!-- Make Payment Tab -->
+                <button class="tab-card active" data-tab="make-payment">
+                    <div class="tab-icon-wrapper rupee">
+                        <span>₹</span>
+                    </div>
+                    <span class="tab-label">Make Payment</span>
+                </button>
+                
+                <!-- Fees Receipt Tab -->
+                <button class="tab-card" data-tab="fees-receipt">
+                    <div class="tab-icon-wrapper card">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"/><line x1="16" y1="8" x2="16" y2="8"/><line x1="12" y1="8" x2="12" y2="8"/><line x1="8" y1="8" x2="8" y2="8"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="8" y1="16" x2="16" y2="16"/></svg>
+                    </div>
+                    <span class="tab-label">Fees Receipt</span>
+                </button>
+                
+                <!-- My Payment Status Tab -->
+                <button class="tab-card" data-tab="payment-status">
+                    <div class="tab-icon-wrapper status">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    </div>
+                    <span class="tab-label">My Payment Status</span>
+                </button>
+            </nav>
+
+            <!-- Alerts Container -->
+            <div class="alerts-container">
+                <!-- Alert 1 -->
+                <div class="alert-box">
+                    <div class="alert-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="alert-icon"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
+                    <div class="alert-content">
+                        <strong>Note!</strong> Payment will be reflected within <span class="highlight">24 hours</span> after making online payment!
+                    </div>
+                    <button class="alert-close">&times;</button>
+                </div>
+                
+                <!-- Alert 2 -->
+                <div class="alert-box">
+                    <div class="alert-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="alert-icon"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
+                    <div class="alert-content">
+                        <strong>Note!</strong> If Payment is not reflected on portal within <span class="highlight">24 hours</span>, Go to My Payment Status and verify your payment!
+                    </div>
+                    <button class="alert-close">&times;</button>
+                </div>
+            </div>
+
+            <!-- Content Card -->
+            <div class="content-card">
+                
+                <!-- TAB 1: MAKE PAYMENT -->
+                <section class="tab-content active" id="make-payment-tab">
+                    <h2 class="section-title">Pending Payments</h2>
+                    
+                    <div class="table-responsive">
+                        <table class="fees-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 80px;">ACTION</th>
+                                    <th>FEES TYPE</th>
+                                    <th>COURSE</th>
+                                    <th>TOTAL FEES DUES</th>
+                                    <th>CURRENT DUE FEES</th>
+                                    <th>AMOUNT BEING PAID</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingFeesBody">
+                                <!-- Empty State Rendered by default (or items from app.js) -->
+                                <tr class="empty-row">
+                                    <td colspan="6">
+                                        <div class="empty-state-wrapper">
+                                            <div class="empty-illustration">
+                                                <svg viewBox="0 0 200 200" class="illustration-svg">
+                                                    <circle cx="100" cy="100" r="90" fill="#f8fbf9"/>
+                                                    <!-- Document 1 (Left) -->
+                                                    <rect x="50" y="60" width="30" height="40" rx="3" fill="#eef4f2" stroke="#d5e5df" stroke-width="1.5"/>
+                                                    <line x1="56" y1="70" x2="74" y2="70" stroke="#bbdad0" stroke-width="2"/>
+                                                    <line x1="56" y1="78" x2="68" y2="78" stroke="#bbdad0" stroke-width="2"/>
+                                                    <line x1="56" y1="86" x2="72" y2="86" stroke="#bbdad0" stroke-width="2"/>
+                                                    
+                                                    <!-- Document 2 (Right) -->
+                                                    <rect x="120" y="60" width="30" height="40" rx="3" fill="#eef4f2" stroke="#d5e5df" stroke-width="1.5"/>
+                                                    <line x1="126" y1="70" x2="144" y2="70" stroke="#bbdad0" stroke-width="2"/>
+                                                    <line x1="126" y1="78" x2="138" y2="78" stroke="#bbdad0" stroke-width="2"/>
+                                                    <line x1="126" y1="86" x2="142" y2="86" stroke="#bbdad0" stroke-width="2"/>
+
+                                                    <!-- Main Building (Center) -->
+                                                    <path d="M85,55 L115,55 L115,120 L85,120 Z" fill="#eef4f2" stroke="#bbdad0" stroke-width="2"/>
+                                                    <polygon points="82,55 100,42 118,55" fill="#539D82"/>
+                                                    <!-- Windows -->
+                                                    <rect x="90" y="65" width="6" height="8" rx="1" fill="#fff" stroke="#bbdad0" stroke-width="1"/>
+                                                    <rect x="104" y="65" width="6" height="8" rx="1" fill="#fff" stroke="#bbdad0" stroke-width="1"/>
+                                                    <rect x="90" y="80" width="6" height="8" rx="1" fill="#fff" stroke="#bbdad0" stroke-width="1"/>
+                                                    <rect x="104" y="80" width="6" height="8" rx="1" fill="#fff" stroke="#bbdad0" stroke-width="1"/>
+                                                    <rect x="90" y="95" width="6" height="8" rx="1" fill="#fff" stroke="#bbdad0" stroke-width="1"/>
+                                                    <rect x="104" y="95" width="6" height="8" rx="1" fill="#fff" stroke="#bbdad0" stroke-width="1"/>
+                                                    <!-- Door -->
+                                                    <path d="M95,120 L95,110 L105,110 L105,120 Z" fill="#316150"/>
+
+                                                    <!-- Magnifying Glass -->
+                                                    <circle cx="100" cy="85" r="30" fill="none" stroke="#717c78" stroke-width="4.5"/>
+                                                    <line x1="121" y1="106" x2="145" y2="130" stroke="#717c78" stroke-width="6" stroke-linecap="round"/>
+                                                </svg>
+                                            </div>
+                                            <p class="empty-message">Yeah! You have no upcoming payments.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Payment Summary / Actions -->
+                    <div class="payment-summary-bar">
+                        <div class="payable-info">
+                            <span class="label">TOTAL PAYABLE</span>
+                            <span class="value" id="totalPayableAmount">NA</span>
+                        </div>
+                        <button class="pay-btn" id="payNowBtn" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><rect x="3" y="4" width="18" height="16" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            Pay Now
+                        </button>
+                    </div>
+                </section>
+
+                <!-- TAB 2: FEES RECEIPT -->
+                <section class="tab-content" id="fees-receipt-tab">
+                    <div class="section-header-row">
+                        <h2 class="section-title">Fees Receipt History</h2>
+                        <div class="search-bar-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="text" id="receiptSearch" placeholder="Search by Receipt No or Fees Type...">
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="fees-table">
+                            <thead>
+                                <tr>
+                                    <th>RECEIPT NO</th>
+                                    <th>PAYMENT DATE</th>
+                                    <th>FEES TYPE</th>
+                                    <th>COURSE</th>
+                                    <th>AMOUNT PAID</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="receiptsBody">
+                                <!-- Loaded dynamically via app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- TAB 3: PAYMENT STATUS -->
+                <section class="tab-content" id="payment-status-tab">
+                    <h2 class="section-title">My Payment Status</h2>
+                    <p class="status-helper-text">Verify recent payment transactions below. Payments usually reflect instantly but can take up to 24 hours.</p>
+                    
+                    <div class="table-responsive">
+                        <table class="fees-table">
+                            <thead>
+                                <tr>
+                                    <th>TRANSACTION ID</th>
+                                    <th>DATE & TIME</th>
+                                    <th>FEES TYPE</th>
+                                    <th>AMOUNT</th>
+                                    <th>METHOD</th>
+                                    <th>STATUS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statusBody">
+                                <!-- Loaded dynamically via app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+            </div>
+            
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link" data-modal="terms-modal">Terms and Conditions</a>
+                <span class="footer-divider">|</span>
+                <a href="#" class="footer-link" data-modal="refund-modal">Refund and Cancellation Policy</a>
+                <span class="footer-divider">|</span>
+                <a href="#" class="footer-link" data-modal="privacy-modal">Privacy Policy</a>
+            </div>
+            <!-- Last Attempt Widget -->
+            <div class="last-attempt-widget">
+                <span>Last Attempt Time: </span>
+                <span id="lastAttemptTimeValue" class="timestamp">--/--/---- --:--:-- --</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- MODAL: Student Profile Details -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-card profile-card-modal">
+            <div class="modal-header">
+                <h3>Student Profile</h3>
+                <button class="modal-close" data-close="profileModal">&times;</button>
+            </div>
+            <div class="modal-body profile-details-body">
+                <div class="profile-main">
+                    <div class="profile-avatar-large">
+                        <svg viewBox="0 0 100 100" class="avatar-svg">
+                            <circle cx="50" cy="50" r="48" fill="#e2f0ec"/>
+                            <circle cx="50" cy="40" r="18" fill="#539D82"/>
+                            <path d="M50,62 C32,62 22,76 22,90 L78,90 C78,76 68,62 50,62 Z" fill="#316150"/>
+                            <polygon points="50,68 45,62 55,62" fill="#fff"/>
+                        </svg>
+                    </div>
+                    <div class="profile-primary-info">
+                        <h4>Harish Kumar Mallaiah Kallepalli</h4>
+                        <span class="id-badge">ID: 5677181</span>
+                    </div>
+                </div>
+                
+                <div class="profile-grid">
+                    <div class="grid-item">
+                        <span class="item-label">Course / Program</span>
+                        <span class="item-val">M.Sc. Computer Science</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Academic Year</span>
+                        <span class="item-val">2026 - 2027</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Semester / Term</span>
+                        <span class="item-val">2nd Year</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Roll Number</span>
+                        <span class="item-val">CS-2026-042</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Email Address</span>
+                        <span class="item-val">harish.kallepalli@nationalcollege.edu</span>
+                    </div>
+                    <div class="grid-item">
+                        <span class="item-label">Contact Number</span>
+                        <span class="item-val">+91 98765 43210</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Offline Payment Warning -->
+    <div class="modal-overlay" id="offlinePaymentModal">
+        <div class="modal-card offline-warning-card">
+            <div class="modal-header">
+                <h3>Payment Not Available Online</h3>
+                <button class="modal-close" data-close="offlinePaymentModal">&times;</button>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 40px 30px;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 20px; background: #fff5f5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 36px; height: 36px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <h4 style="font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: #2d3748; margin-bottom: 12px;">You have finished number of attempts.<br>Please pay via offline.</h4>
+                <p style="font-size: 13px; color: #718096; line-height: 1.6; max-width: 360px; margin: 0 auto 24px;">Your online payment attempts have been exhausted. Please visit the college accounts office to make the payment directly via cash, cheque, or demand draft.</p>
+                <div style="background: #f7fafc; border-radius: 10px; padding: 16px; border: 1px dashed #e2e8f0; margin-bottom: 20px;">
+                    <p style="font-size: 12px; color: #4a5568; margin-bottom: 6px;"><strong>Accounts Office Hours:</strong> Mon - Sat, 10:00 AM - 4:00 PM</p>
+                    <p style="font-size: 12px; color: #4a5568;"><strong>Location:</strong> Ground Floor, Admin Block, RD & SH National College</p>
+                </div>
+                <button class="pay-btn" style="margin: 0 auto;" onclick="document.getElementById('offlinePaymentModal').classList.remove('active'); document.body.style.overflow='';">Understood</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Checkout / Payment Gateway -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-card checkout-card">
+            <div class="modal-header">
+                <h3>Secure Payment Checkout</h3>
+                <button class="modal-close" data-close="checkoutModal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Payment Steps Info -->
+                <div class="checkout-summary">
+                    <div class="summary-line">
+                        <span>Fees Type:</span>
+                        <strong id="modalFeesType">Tuition Fee - Sem IV</strong>
+                    </div>
+                    <div class="summary-line">
+                        <span>Course:</span>
+                        <span id="modalCourse">M.Sc. Information Technology</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>Amount to Pay:</span>
+                        <strong id="modalAmount">₹ 42,500.00</strong>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Navigation -->
+                <div class="payment-tabs">
+                    <button class="pay-tab-btn active" data-pay-method="card">Debit / Credit Card</button>
+                    <button class="pay-tab-btn" data-pay-method="upi">UPI / QR Code</button>
+                    <button class="pay-tab-btn" data-pay-method="netbanking">Net Banking</button>
+                </div>
+
+                <!-- Card Panel -->
+                <div class="pay-method-panel active" id="panel-card">
+                    <form id="cardPaymentForm" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" id="cardNumber" placeholder="4111 2222 3333 4444" maxlength="19" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardExpiry">Expiry Date</label>
+                                <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardCvv">CVV</label>
+                                <input type="password" id="cardCvv" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardName">Cardholder Name</label>
+                            <input type="text" id="cardName" placeholder="Harish Kumar M K" required>
+                        </div>
+                        <button type="submit" class="submit-pay-btn" id="submitCardBtn">Pay Securely</button>
+                    </form>
+                </div>
+
+                <!-- UPI Panel -->
+                <div class="pay-method-panel" id="panel-upi">
+                    <div class="upi-option-wrapper">
+                        <div class="form-group">
+                            <label for="upiId">Enter UPI ID (VPA)</label>
+                            <div class="upi-input-group">
+                                <input type="text" id="upiId" placeholder="username@okhdfcbank">
+                                <button type="button" class="verify-vpa-btn" id="verifyVpaBtn">Verify</button>
+                            </div>
+                            <span class="vpa-status" id="vpaStatusText"></span>
+                        </div>
+                        
+                        <div class="upi-divider">
+                            <span>OR SCAN QR CODE</span>
+                        </div>
+                        
+                        <div class="qr-container">
+                            <div class="qr-code">
+                                <!-- QR Mock SVG -->
+                                <svg viewBox="0 0 100 100" class="qr-svg">
+                                    <rect x="0" y="0" width="100" height="100" fill="#fff"/>
+                                    <!-- Corners -->
+                                    <rect x="5" y="5" width="25" height="25" fill="#333"/>
+                                    <rect x="10" y="10" width="15" height="15" fill="#fff"/>
+                                    <rect x="13" y="13" width="9" height="9" fill="#333"/>
+                                    
+                                    <rect x="70" y="5" width="25" height="25" fill="#333"/>
+                                    <rect x="75" y="10" width="15" height="15" fill="#fff"/>
+                                    <rect x="78" y="13" width="9" height="9" fill="#333"/>
+                                    
+                                    <rect x="5" y="70" width="25" height="25" fill="#333"/>
+                                    <rect x="10" y="75" width="15" height="15" fill="#fff"/>
+                                    <rect x="13" y="78" width="9" height="9" fill="#333"/>
+                                    
+                                    <!-- Center Emblem -->
+                                    <rect x="42" y="42" width="16" height="16" fill="#316150" rx="3"/>
+                                    <text x="50" y="52" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">₹</text>
+
+                                    <!-- Mock bits -->
+                                    <rect x="40" y="10" width="8" height="8" fill="#333"/>
+                                    <rect x="55" y="15" width="6" height="4" fill="#333"/>
+                                    <rect x="35" y="25" width="10" height="5" fill="#333"/>
+                                    <rect x="70" y="40" width="12" height="6" fill="#333"/>
+                                    <rect x="85" y="50" width="8" height="8" fill="#333"/>
+                                    <rect x="10" y="45" width="6" height="12" fill="#333"/>
+                                    <rect x="25" y="50" width="8" height="8" fill="#333"/>
+                                    <rect x="45" y="70" width="15" height="5" fill="#333"/>
+                                    <rect x="70" y="75" width="10" height="10" fill="#333"/>
+                                    <rect x="85" y="85" width="10" height="10" fill="#333"/>
+                                    <rect x="60" y="60" width="8" height="8" fill="#333"/>
+                                    <rect x="38" y="60" width="6" height="6" fill="#333"/>
+                                </svg>
+                            </div>
+                            <p class="qr-helper">Scan this QR using any UPI app (GPay, PhonePe, BHIM, Paytm)</p>
+                        </div>
+                        <button class="submit-pay-btn" id="submitUpiBtn" disabled>Pay via UPI</button>
+                    </div>
+                </div>
+
+                <!-- Net Banking Panel -->
+                <div class="pay-method-panel" id="panel-netbanking">
+                    <div class="bank-grid">
+                        <button class="bank-btn" data-bank="SBI">
+                            <span class="bank-logo-placeholder">SBI</span>
+                            <span>State Bank of India</span>
+                        </button>
+                        <button class="bank-btn" data-bank="HDFC">
+                            <span class="bank-logo-placeholder">HDFC</span>
+                            <span>HDFC Bank</span>
+                        </button>
+                        <button class="bank-btn" data-bank="ICICI">
+                            <span class="bank-logo-placeholder">ICICI</span>
+                            <span>ICICI Bank</span>
+                        </button>
+                        <button class="bank-btn" data-bank="AXIS">
+                            <span class="bank-logo-placeholder">AXIS</span>
+                            <span>Axis Bank</span>
+                        </button>
+                    </div>
+                    <button class="submit-pay-btn" id="submitBankBtn" disabled>Pay via Net Banking</button>
+                </div>
+            </div>
+            
+            <!-- Success/Processing overlay state inside Modal -->
+            <div class="modal-status-overlay" id="checkoutStatusOverlay">
+                <div class="status-content">
+                    <div class="spinner-ring" id="checkoutSpinner"></div>
+                    <div class="success-checkmark" id="checkoutSuccessIcon" style="display:none;">
+                        <svg viewBox="0 0 52 52" class="checkmark-svg">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h4 id="statusTitle">Processing Payment...</h4>
+                    <p id="statusDesc">Please do not refresh this page or close the browser window.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Receipt View / Print -->
+    <div class="modal-overlay" id="receiptModal">
+        <div class="modal-card receipt-view-card">
+            <div class="modal-header no-print">
+                <h3>Payment Receipt</h3>
+                <div class="header-action-group">
+                    <button class="print-btn" onclick="window.print()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                        Print Receipt
+                    </button>
+                    <button class="modal-close" data-close="receiptModal">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body printable-receipt-body" id="receiptPrintableArea">
+                <!-- Receipt details populated dynamically by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODALS FOR POLICIES (FOOTER) -->
+    <!-- Terms Modal -->
+    <div class="modal-overlay" id="terms-modal">
+        <div class="modal-card policy-card">
+            <div class="modal-header">
+                <h3>Terms and Conditions</h3>
+                <button class="modal-close" data-close="terms-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Welcome to the RD & SH National College & SWA Science College Fees Payment Portal. By accessing and using this portal, you agree to comply with the terms and conditions outlined below:</p>
+                <ul>
+                    <li><strong>Service Availability:</strong> The online payment service is provided to facilitate payment of college fees. The college reserves the right to suspend or terminate access to this portal at any time for maintenance or security reasons.</li>
+                    <li><strong>Payment Responsibility:</strong> It is the responsibility of the student/parent to ensure that payments are made in a timely manner. The college is not liable for delayed payments caused by network issues or card failure.</li>
+                    <li><strong>Transaction Fees:</strong> Any convenience fees or processing charges applied by the payment gateway provider must be borne by the student.</li>
+                    <li><strong>Data Privacy:</strong> Student information and payment transactions are protected under security standards. However, users must secure their credentials and login details to prevent unauthorized access.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refund Modal -->
+    <div class="modal-overlay" id="refund-modal">
+        <div class="modal-card policy-card">
+            <div class="modal-header">
+                <h3>Refund and Cancellation Policy</h3>
+                <button class="modal-close" data-close="refund-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Our refund policy details the processing parameters for any payment disputes or incorrect transactions:</p>
+                <ul>
+                    <li><strong>No Refund Policy:</strong> Generally, fees once paid to the college are non-refundable and non-transferable under any circumstances, except in cases of double payments.</li>
+                    <li><strong>Double Payments:</strong> If a student pays the same fee twice due to technical error, the extra amount will be refunded upon submission of proof (bank statements, payment transaction IDs). The refund will be credited to the original payment source.</li>
+                    <li><strong>Processing Timeline:</strong> Refunds for verified double payments may take 7 to 15 working days to reflect in the user's account.</li>
+                    <li><strong>Dispute Resolution:</strong> For payment-related issues, please contact the college administration office or send an email to <strong>finance@nationalcollege.edu</strong> with transaction receipts.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div class="modal-overlay" id="privacy-modal">
+        <div class="modal-card policy-card">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="modal-close" data-close="privacy-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your privacy is important to us. This policy details how we collect, use, and protect your information:</p>
+                <ul>
+                    <li><strong>Information We Collect:</strong> We collect student profile details, course details, payment amounts, and transaction metadata. We do not store card details, PINs, or net banking passwords.</li>
+                    <li><strong>Security Measures:</strong> We employ standard encryption protocols (SSL/TLS) to secure all payment transactions. Sensitive information transmitted during checkout is handled directly by PCI-DSS compliant payment gateways.</li>
+                    <li><strong>Data Usage:</strong> Student data is used solely for fee processing, reconciliation, and official college record-keeping. We do not share, sell, or lease your private data to third-party marketing companies.</li>
+                    <li><strong>Cookies:</strong> This website may use session cookies to keep you logged in and ensure secure navigation across tabs. Cookies are deleted upon closing the browser.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="app.js?v=3"></script>
+</body>
+</html>
