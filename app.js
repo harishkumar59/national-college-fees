@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initial Pending Fees (State: Pending payment)
     let pendingFees = [
-        { id: 'fee_1', type: '2nd Year Fees', course: 'M.Sc. Computer Science', total: 44286, current: 44286 }
+        { id: 'fee_1', type: '2nd Year Fees', course: 'M.Sc. Computer Science', total: 48286, current: 48286 }
     ];
 
     // Historical Paid Receipts
     let receiptsList = [
-        { receiptNo: 'FR/2026/1042', date: '12/10/2026', type: '2nd Year Fees', course: 'M.Sc. Computer Science', amount: 44286 }
+        { receiptNo: 'FR/2026/1042', date: '12/10/2026', type: '2nd Year Fees', course: 'M.Sc. Computer Science', amount: 48286 }
     ];
 
     // Transaction Attempt Status Log
@@ -387,10 +387,10 @@ document.addEventListener('DOMContentLoaded', () => {
         isDemoModePending = false;
         demoEmptyBtn.click();
         pendingFees = [
-            { id: 'fee_1', type: '2nd Year Fees', course: 'M.Sc. Computer Science', total: 44286, current: 44286 }
+            { id: 'fee_1', type: '2nd Year Fees', course: 'M.Sc. Computer Science', total: 48286, current: 48286 }
         ];
         receiptsList = [
-            { receiptNo: 'FR/2026/1042', date: '12/10/2026', type: '2nd Year Fees', course: 'M.Sc. Computer Science', amount: 44286 }
+            { receiptNo: 'FR/2026/1042', date: '12/10/2026', type: '2nd Year Fees', course: 'M.Sc. Computer Science', amount: 48286 }
         ];
         statusLog = [];
         lastAttemptSpan.textContent = '--/--/---- --:--:-- --';
